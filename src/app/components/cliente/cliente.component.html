@@ -1,0 +1,27 @@
+<div class="container" style="margin:auto; padding: 10px">
+  <p></p>
+  <h3 style="text-align : center">Lista general de Clientes</h3>
+  <hr />
+  <p></p>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th>Número Cliente</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Tiempo de llegada (Minutos)</th>
+        <th scope="col">Tiempo de consumo (Minutos)</th>
+      </tr>
+    </thead>
+    <tbody *ngFor=" let cliente of clientes | paginate: { itemsPerPage: 8, currentPage: pageActual}">
+      <tr>
+        <th>{{cliente.id}}</th>
+        <th scope="row">{{cliente.nombre}}</th>
+        <th scope="row">{{cliente.tiempoLLegada}} </th>
+        <th scope="row">{{cliente.tiempoConsumo}} </th>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="pageActual = $event"></pagination-controls>
+  <hr>
+
+</div>
